@@ -5,6 +5,10 @@ require('express-async-errors');
 app.use(express.json());
 app.use('/static', express.static('assets'))
 
+const dogRouter = require('./routes/dogs')
+app.use('/dogs', dogRouter)
+
+
 app.use("/", (req, res, next) => {
   console.log(req.method)
   console.log(req.url)
