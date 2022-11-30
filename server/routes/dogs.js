@@ -89,10 +89,10 @@ const deleteDog = (req, res) => {
 
 // Your code here
 dogRouter.get('/', getAllDogs)
-dogRouter.get('/:dogId', getDogById)
-dogRouter.post('/', createDog)
-dogRouter.put('/:dogId', updateDog)
-dogRouter.delete('/:dogId', deleteDog)
+dogRouter.get('/:dogId', [validateDogId, getDogById])
+dogRouter.post('/', [validateDogInfo, createDog])
+dogRouter.put('/:dogId', [validateDogId, validateDogInfo, updateDog])
+dogRouter.delete('/:dogId', [validateDogId, deleteDog])
 
 
 
