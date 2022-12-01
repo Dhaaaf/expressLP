@@ -3,6 +3,9 @@
 const express = require('express');
 const dogRouter = express.Router();
 
+const dogFoodRouter = require('./dog-foods');
+dogRouter.use('/:dogId/foods', dogFoodRouter)
+
 let nextDogId = 1;
 function getNewDogId() {
   const newDogId = nextDogId;
