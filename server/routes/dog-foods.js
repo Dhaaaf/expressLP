@@ -1,6 +1,7 @@
 // ------------------------------  SERVER DATA ------------------------------
 const express = require('express');
-const dogFoodRouter = express.Router({mergeParams: true});
+const dog = require("./dogs.js");
+const dogFoodRouter = express.Router({ mergeParams: true });
 
 let nextFoodId = 1;
 function getNewFoodId() {
@@ -62,7 +63,7 @@ const createFood = (req, res) => {
 // ------------------------------  ROUTER ------------------------------
 
 // Your code here
-dogFoodRouter.get(getFoodsByDogId);
-dogFoodRouter.post([createFood])
+dogFoodRouter.get("/", getFoodsByDogId);
+dogFoodRouter.post("/", createFood)
 
 module.exports = dogFoodRouter
